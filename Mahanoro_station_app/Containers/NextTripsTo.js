@@ -2,61 +2,56 @@ import React, { Fragment, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { nextDestination } from "../Actions";
+import { NextTrips } from "../Components";
+import { Container } from "../Components/NextTrips/styles/nextTrip";
+
+// const {town} = useParams();
+    // const trips = useSelector(state => state.trips);
+    // const tripToDisplay = trips.filter(trip => trip.destination === town);
 
 export default function NextTripsToContainer() {
-  const destinations = useSelector((state) => state.destinations);
-  const nextTrips = useSelector((state) => state.nextDestinationTo);
-  console.log(nextTrips);
-  const dispatch = useDispatch();
+
   const { trip } = useParams();
-  // Get the array of trips that we have per destination
-  const nextTripsDetails =
-    destinations !== [] &&
-    destinations.filter((trip) => trip.destination === trip);
+  const destinations = useSelector((state) => state.destinations);
 
-  useEffect(() => {
-    dispatch(nextDestination(nextTripsDetails));
-  }, [destinations]);
-
-  // Number of seats available
   const numberOfSeats = (arr) => {
     return arr.filter((seat) => seat.isAvailable).length;
   };
 
   return (
-    <Fragment>
+    <Container>
       <div>
         <h2>Next trip to: </h2>
-        <span>{trip}</span>
+        <NextTrips.Title>{trip}</NextTrips.Title>
       </div>
-      {nextTrips &&
-        nextTrips.map((trip) => {
+      {destinations &&
+        destinations.map((trip) => {
           return (
-            <div key={trip.id}>
-              <div>
+            <NextTrips.Group key={trip.id}>
+              <NextTrips.SubGroup>
                 <img src="" alt="taxi-brousse" />
-              </div>
-              <div>
-                <div>{trip.departureTime}</div>
-                <div>{trip.departureTime}</div>
-              </div>
-              <div>
-                <div>{trip.departureTime}</div>
+              </NextTrips.SubGroup>
+              <NextTrips.SubGroup>
+                <div>{new Date().toDateString(trip.departureTime)}</div>
+                <div>{new Date().toLocaleTimeString(trip.departureTime)}</div>
+              </NextTrips.SubGroup>
+              <NextTrips.SubGroup>
+                <div>{new Date().toLocaleDateString(trip.departureTime)}</div>
                 <div>
                   {numberOfSeats(trip.seats) < 2
                     ? `${numberOfSeats(trip.seats)} seat`
                     : `${numberOfSeats(trip.seats)} seats`}{" "}
                   left
                 </div>
-              </div>
-              <div>
-                <a to={`/trip/${trip.id}`}>
-                  <button>Book a seat</button>
-                </a>
-              </div>
-            </div>
+              </NextTrips.SubGroup>
+              <NextTrips.SubGroup>
+                <NextTrips.LinkButton to={`/nextTrip/${trip.id}`}>
+                  Book a seat
+                </NextTrips.LinkButton>
+              </NextTrips.SubGroup>
+            </NextTrips.Group>
           );
         })}
-    </Fragment>
+    </Container>
   );
 }

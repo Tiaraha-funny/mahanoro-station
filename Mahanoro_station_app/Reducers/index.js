@@ -12,22 +12,10 @@ export function destinations(state = [], action) {
   }
 }
 
-export function nextDestinationTo(state = [], action) {
-    console.log("action reduceer", action.value);
-  switch (action.type) {
-    case "NEXT_DESTINATION":
-      return action.value;
-      break;
-    default:
-      return state;
-      break;
-  }
-}
-
 export function bookingSeats(state = [], action) {
     switch (action.type) {
       case "BOOK_SEATS":
-        return [...state, action.value];
+        return action.value;
         break;
   
       default:
@@ -38,6 +26,6 @@ export function bookingSeats(state = [], action) {
 
 export const rootReducers = combineReducers({
     destinations,
-    nextDestinationTo,
+    // nextDestinationTo,
     bookingSeats
 })

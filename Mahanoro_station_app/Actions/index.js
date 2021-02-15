@@ -9,13 +9,6 @@ export function destionation() {
     }
 }
 
-export function nextDestination(nextTrip) {
-    return {
-        type: "NEXT_DESTINATION",
-        value: nextTrip
-    }
-}
-
 export function bookedSeats(seat) {
     return {
         type: "BOOK_SEATS",

@@ -1,5 +1,6 @@
 import React, { Fragment } from "react";
-import { Link, Route, Switch } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
+import BookSeatsContainer from "./Containers/BookSeats";
 import HeaderContainer from "./Containers/Header";
 import NextTripsToContainer from "./Containers/NextTripsTo";
 import HomePages from "./Pages/Home";
@@ -16,7 +17,9 @@ function MahanoroStationApp() {
         <Route path="/destination/:trip">
             <NextTripsToContainer />
         </Route>
-        <Route path="./bookSeat"></Route>
+        <Route path="/nextTrip/:tripId">
+          <BookSeatsContainer/>
+        </Route>
         <Route path="/myAccount">
           <MyAccount />
         </Route>

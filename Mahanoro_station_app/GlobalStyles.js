@@ -11,4 +11,8 @@ export const GlobalStyles = createGlobalStyle`
         font-weight: 700px;
         margin: 0;
     }
+
+    button {
+        cursor: pointer;
+    }
 `;
