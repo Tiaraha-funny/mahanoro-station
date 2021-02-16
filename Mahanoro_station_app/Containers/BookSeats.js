@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { BookSeat } from "../Components";
@@ -6,14 +6,15 @@ import { Container } from "../Components/BookSeat/style/bookSeat";
 import ModalContainer from "./Modal";
 import availableChair from "../Icons/unbooked-chair.svg";
 import unavailableChair from "../Icons/red-seat.png";
+import { addSeats } from "../Actions";
+import pickedSeat from "../Icons/yellow-seats.png";
 
 export default function BookSeatsContainer() {
+  const [modalOn, setModalOn] = useState(false);
+  const [totlaPrice, setTotalPrice] = useState(0);
+
   const { tripId } = useParams();
   const destinations = useSelector((state) => state.destinations);
-  const booking = useSelector((state) => state.bookingSeats);
-  console.log("booking", booking);
-
-  const [modalOn, setModalOn] = useState(false);
 
   const destinationsDetails =
     destinations !== [] && destinations.filter((trip) => trip.id === tripId);
@@ -24,14 +25,21 @@ export default function BookSeatsContainer() {
   const getIdOfWhatIClicked =
     destinations !== [] && destinations.find((seat) => seat.id == tripId);
 
-    console.log("seats", getIdOfWhatIClicked.seats);
-
   const getSeatsFromThisDestination =
     destinations !== [] &&
     getIdOfWhatIClicked &&
     getIdOfWhatIClicked.seats.find((seat) => seat.id == tripId);
 
-  console.log("get seats from teh destina", getSeatsFromThisDestination);
+    console.log("destinations", getIdOfWhatIClicked);
+
+    const newTotal = destinations !== [] && getIdOfWhatIClicked.price;
+    const totalAmount = Number(newTotal + getSeatsFromThisDestination.price)
+
+  function handlePickSeats(seat) {
+    addSeats(seat);
+    setTotalPrice(totalAmount);
+    return <img src={pickedSeat} />;
+  }
 
   return (
     <Container>
@@ -40,9 +48,19 @@ export default function BookSeatsContainer() {
       <BookSeat.Group>
         <BookSeat.PickSeat>
           <div>Pick a seat</div>
-          <BookSeat.Seats>{getIdOfWhatIClicked.seats.map((seat) => (
-            <div key={seat.id} >{seat.isAvailable ? <img src={availableChair}/> : <img src={unavailableChair} />}</div>
-          )) }</BookSeat.Seats>
+          <BookSeat.Seats>
+            {getIdOfWhatIClicked.seats.map((seat) => (
+              <div key={seat.id}>
+                {seat.isAvailable ? (
+                  <button onClick={handlePickSeats}>
+                    <img src={availableChair} />
+                  </button>
+                ) : (
+                  <img src={unavailableChair} />
+                )}
+              </div>
+            ))}
+          </BookSeat.Seats>
         </BookSeat.PickSeat>
         <BookSeat.Info>
           <div>Trip information</div>
@@ -73,7 +91,7 @@ export default function BookSeatsContainer() {
             <button onClick={() => setModalOn(true)}>
               book {getIdOfWhatIClicked.seats.length} seat
             </button>
-            <div>Total: </div>
+            <div>Total: {totlaPrice} Ar</div>
           </BookSeat.InfoContent>
         </BookSeat.Info>
       </BookSeat.Group>

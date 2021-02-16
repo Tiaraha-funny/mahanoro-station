@@ -38191,7 +38191,137 @@ const GlobalStyles = (0, _styledComponents.createGlobalStyle)`
     }
 `;
 exports.GlobalStyles = GlobalStyles;
-},{"styled-components":"node_modules/styled-components/dist/styled-components.browser.esm.js"}],"Mahanoro_station_app/Components/Header/Styles/Header.js":[function(require,module,exports) {
+},{"styled-components":"node_modules/styled-components/dist/styled-components.browser.esm.js"}],"Mahanoro_station_app/Components/MyAccount/style/account.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.SubmitBtn = exports.Label = exports.Form = exports.Content = exports.Input = exports.SubGroup = exports.Group = exports.Title = exports.Container = void 0;
+
+var _styledComponents = _interopRequireDefault(require("styled-components"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+const Container = _styledComponents.default.section`
+  width: 80%;
+  margin: auto;
+`;
+exports.Container = Container;
+const Title = _styledComponents.default.div`
+font-size: 36px;
+  span {
+    color: #e53170;
+    text-decoration: uppercase;
+  }
+`;
+exports.Title = Title;
+const Group = _styledComponents.default.div`
+  display: flex;
+  align-items: center;
+
+  img {
+    margin-left: 30px;
+    margin-right: 30px;
+}
+`;
+exports.Group = Group;
+const SubGroup = _styledComponents.default.div`
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+`;
+exports.SubGroup = SubGroup;
+const Input = _styledComponents.default.input`
+  background-color: #000000;
+  width: 80%;
+  padding: 20px;
+  color: #ff8906;
+`;
+exports.Input = Input;
+const Content = _styledComponents.default.div``;
+exports.Content = Content;
+const Form = _styledComponents.default.form``;
+exports.Form = Form;
+const Label = _styledComponents.default.label``;
+exports.Label = Label;
+const SubmitBtn = _styledComponents.default.button`
+background-color: #E53170;
+padding: 20px;
+color: white;
+font-size: 20px;
+`;
+exports.SubmitBtn = SubmitBtn;
+},{"styled-components":"node_modules/styled-components/dist/styled-components.browser.esm.js"}],"Mahanoro_station_app/Components/MyAccount/index.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = MyAccountStyle;
+
+var _react = _interopRequireDefault(require("react"));
+
+var _account = require("../MyAccount/style/account");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function MyAccountStyle({
+  children,
+  ...restProps
+}) {
+  return /*#__PURE__*/_react.default.createElement(_account.Container, restProps, children);
+}
+
+MyAccountStyle.Title = function MyAccountStyleTitle({
+  children,
+  ...restProps
+}) {
+  return /*#__PURE__*/_react.default.createElement(_account.Title, restProps, children);
+};
+
+MyAccountStyle.Group = function MyAccountStyleGroup({
+  children,
+  ...restProps
+}) {
+  return /*#__PURE__*/_react.default.createElement(_account.Group, restProps, children);
+};
+
+MyAccountStyle.SubGroup = function MyAccountStyleSubGroup({
+  children,
+  ...restProps
+}) {
+  return /*#__PURE__*/_react.default.createElement(_account.SubGroup, restProps, children);
+};
+
+MyAccountStyle.Input = function MyAccountStyleInput({
+  children,
+  ...restProps
+}) {
+  return /*#__PURE__*/_react.default.createElement(_account.Input, restProps, children);
+};
+
+MyAccountStyle.Label = function MyAccountStyleLabel({
+  children,
+  ...restProps
+}) {
+  return /*#__PURE__*/_react.default.createElement(_account.Label, restProps, children);
+};
+
+MyAccountStyle.Form = function MyAccountStyleForm({
+  children,
+  ...restProps
+}) {
+  return /*#__PURE__*/_react.default.createElement(_account.Form, restProps, children);
+};
+
+MyAccountStyle.SubmitBtn = function MyAccountStyleSubmitBtn({
+  children,
+  ...restProps
+}) {
+  return /*#__PURE__*/_react.default.createElement(_account.SubmitBtn, restProps, children);
+};
+},{"react":"node_modules/react/index.js","../MyAccount/style/account":"Mahanoro_station_app/Components/MyAccount/style/account.js"}],"Mahanoro_station_app/Components/Header/Styles/Header.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -38681,6 +38811,12 @@ BookSeat.InfoContent = function BookSeatInfoContent({
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+Object.defineProperty(exports, "MyAccountStyle", {
+  enumerable: true,
+  get: function () {
+    return _MyAccount.default;
+  }
+});
 Object.defineProperty(exports, "Header", {
   enumerable: true,
   get: function () {
@@ -38706,6 +38842,8 @@ Object.defineProperty(exports, "BookSeat", {
   }
 });
 
+var _MyAccount = _interopRequireDefault(require("./MyAccount"));
+
 var _Header = _interopRequireDefault(require("./Header"));
 
 var _Home = _interopRequireDefault(require("./Home"));
@@ -38715,7 +38853,7 @@ var _NextTrips = _interopRequireDefault(require("./NextTrips"));
 var _BookSeat = _interopRequireDefault(require("./BookSeat"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-},{"./Header":"Mahanoro_station_app/Components/Header/index.js","./Home":"Mahanoro_station_app/Components/Home/index.js","./NextTrips":"Mahanoro_station_app/Components/NextTrips/index.js","./BookSeat":"Mahanoro_station_app/Components/BookSeat/index.js"}],"Mahanoro_station_app/Icons/tick.png":[function(require,module,exports) {
+},{"./MyAccount":"Mahanoro_station_app/Components/MyAccount/index.js","./Header":"Mahanoro_station_app/Components/Header/index.js","./Home":"Mahanoro_station_app/Components/Home/index.js","./NextTrips":"Mahanoro_station_app/Components/NextTrips/index.js","./BookSeat":"Mahanoro_station_app/Components/BookSeat/index.js"}],"Mahanoro_station_app/Icons/tick.png":[function(require,module,exports) {
 module.exports = "/tick.111b6808.png";
 },{}],"Mahanoro_station_app/Containers/Modal.js":[function(require,module,exports) {
 "use strict";
@@ -38800,6 +38938,43 @@ function ModalContainer({
 module.exports = "/unbooked-chair.537afb31.svg";
 },{}],"Mahanoro_station_app/Icons/red-seat.png":[function(require,module,exports) {
 module.exports = "/red-seat.a36485d3.png";
+},{}],"Mahanoro_station_app/Actions/index.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.destionation = destionation;
+exports.bookedSeats = bookedSeats;
+exports.addSeats = addSeats;
+
+function destionation() {
+  return async dispatch => {
+    const res = await fetch(`https://gist.githubusercontent.com/Pinois/36bb5fbf9b6a686f0baf4006dd137bca/raw/a40d8b3f696a75f388db286d57bdd05a925fa0e7/trips.json`);
+    const destinations = await res.json();
+    return dispatch({
+      type: "DESTINATION",
+      value: destinations
+    });
+  };
+}
+
+function bookedSeats(seat) {
+  return {
+    type: "BOOK_SEATS",
+    value: seat
+  };
+}
+
+function addSeats(seats) {
+  console.log(seats);
+  return {
+    type: "ADD_SEATS",
+    value: seats
+  };
+}
+},{}],"Mahanoro_station_app/Icons/yellow-seats.png":[function(require,module,exports) {
+module.exports = "/yellow-seats.48c546b0.png";
 },{}],"Mahanoro_station_app/Containers/BookSeats.js":[function(require,module,exports) {
 "use strict";
 
@@ -38824,6 +38999,10 @@ var _unbookedChair = _interopRequireDefault(require("../Icons/unbooked-chair.svg
 
 var _redSeat = _interopRequireDefault(require("../Icons/red-seat.png"));
 
+var _Actions = require("../Actions");
+
+var _yellowSeats = _interopRequireDefault(require("../Icons/yellow-seats.png"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
@@ -38831,33 +39010,44 @@ function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
 function BookSeatsContainer() {
+  const [modalOn, setModalOn] = (0, _react.useState)(false);
+  const [totlaPrice, setTotalPrice] = (0, _react.useState)(0);
   const {
     tripId
   } = (0, _reactRouterDom.useParams)();
   const destinations = (0, _reactRedux.useSelector)(state => state.destinations);
-  const booking = (0, _reactRedux.useSelector)(state => state.bookingSeats);
-  console.log("booking", booking);
-  const [modalOn, setModalOn] = (0, _react.useState)(false);
   const destinationsDetails = destinations !== [] && destinations.filter(trip => trip.id === tripId);
   const cities = destinations !== [] && destinations.map(city => city.destination);
   const getIdOfWhatIClicked = destinations !== [] && destinations.find(seat => seat.id == tripId);
-  console.log("seats", getIdOfWhatIClicked.seats);
   const getSeatsFromThisDestination = destinations !== [] && getIdOfWhatIClicked && getIdOfWhatIClicked.seats.find(seat => seat.id == tripId);
-  console.log("get seats from teh destina", getSeatsFromThisDestination);
+  console.log("destinations", getIdOfWhatIClicked);
+  const newTotal = destinations !== [] && getIdOfWhatIClicked.price;
+  const totalAmount = Number(newTotal + getSeatsFromThisDestination.price);
+
+  function handlePickSeats(seat) {
+    (0, _Actions.addSeats)(seat);
+    setTotalPrice(totalAmount);
+    return /*#__PURE__*/_react.default.createElement("img", {
+      src: _yellowSeats.default
+    });
+  }
+
   return /*#__PURE__*/_react.default.createElement(_bookSeat.Container, null, /*#__PURE__*/_react.default.createElement(_Components.BookSeat.SubTitle, null, "Book a seat to:"), /*#__PURE__*/_react.default.createElement(_Components.BookSeat.Title, null, cities[0]), /*#__PURE__*/_react.default.createElement(_Components.BookSeat.Group, null, /*#__PURE__*/_react.default.createElement(_Components.BookSeat.PickSeat, null, /*#__PURE__*/_react.default.createElement("div", null, "Pick a seat"), /*#__PURE__*/_react.default.createElement(_Components.BookSeat.Seats, null, getIdOfWhatIClicked.seats.map(seat => /*#__PURE__*/_react.default.createElement("div", {
     key: seat.id
-  }, seat.isAvailable ? /*#__PURE__*/_react.default.createElement("img", {
+  }, seat.isAvailable ? /*#__PURE__*/_react.default.createElement("button", {
+    onClick: handlePickSeats
+  }, /*#__PURE__*/_react.default.createElement("img", {
     src: _unbookedChair.default
-  }) : /*#__PURE__*/_react.default.createElement("img", {
+  })) : /*#__PURE__*/_react.default.createElement("img", {
     src: _redSeat.default
   }))))), /*#__PURE__*/_react.default.createElement(_Components.BookSeat.Info, null, /*#__PURE__*/_react.default.createElement("div", null, "Trip information"), /*#__PURE__*/_react.default.createElement(_Components.BookSeat.InfoContent, null, /*#__PURE__*/_react.default.createElement("div", null, "Departure time: ", getIdOfWhatIClicked.departureTime, " "), /*#__PURE__*/_react.default.createElement("div", null)), /*#__PURE__*/_react.default.createElement(_Components.BookSeat.InfoContent, null, /*#__PURE__*/_react.default.createElement("div", null, "Driver: ", getIdOfWhatIClicked.driverName, " "), /*#__PURE__*/_react.default.createElement("div", null)), /*#__PURE__*/_react.default.createElement(_Components.BookSeat.InfoContent, null, /*#__PURE__*/_react.default.createElement("div", null, "Driver's contact:", getIdOfWhatIClicked.driverContact, " "), /*#__PURE__*/_react.default.createElement("div", null)), /*#__PURE__*/_react.default.createElement(_Components.BookSeat.InfoContent, null, /*#__PURE__*/_react.default.createElement("div", null, "Estimated duration: ", getIdOfWhatIClicked.estimatedDuration, " "), /*#__PURE__*/_react.default.createElement("div", null)), /*#__PURE__*/_react.default.createElement(_Components.BookSeat.InfoContent, null, /*#__PURE__*/_react.default.createElement("div", null, "Breaks: ", getIdOfWhatIClicked.breaks), /*#__PURE__*/_react.default.createElement("div", null)), /*#__PURE__*/_react.default.createElement(_Components.BookSeat.InfoContent, null, /*#__PURE__*/_react.default.createElement("div", null, " ", getIdOfWhatIClicked.price, " Ar / seat"), /*#__PURE__*/_react.default.createElement("button", {
     onClick: () => setModalOn(true)
-  }, "book ", getIdOfWhatIClicked.seats.length, " seat"), /*#__PURE__*/_react.default.createElement("div", null, "Total: ")))), modalOn && /*#__PURE__*/_react.default.createElement(_Modal.default, {
+  }, "book ", getIdOfWhatIClicked.seats.length, " seat"), /*#__PURE__*/_react.default.createElement("div", null, "Total: ", totlaPrice, " Ar")))), modalOn && /*#__PURE__*/_react.default.createElement(_Modal.default, {
     modalOn: modalOn,
     setModalOn: setModalOn
   }));
 }
-},{"react":"node_modules/react/index.js","react-redux":"node_modules/react-redux/es/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","../Components":"Mahanoro_station_app/Components/index.js","../Components/BookSeat/style/bookSeat":"Mahanoro_station_app/Components/BookSeat/style/bookSeat.js","./Modal":"Mahanoro_station_app/Containers/Modal.js","../Icons/unbooked-chair.svg":"Mahanoro_station_app/Icons/unbooked-chair.svg","../Icons/red-seat.png":"Mahanoro_station_app/Icons/red-seat.png"}],"Mahanoro_station_app/Icons/small-bus-title.png":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","react-redux":"node_modules/react-redux/es/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","../Components":"Mahanoro_station_app/Components/index.js","../Components/BookSeat/style/bookSeat":"Mahanoro_station_app/Components/BookSeat/style/bookSeat.js","./Modal":"Mahanoro_station_app/Containers/Modal.js","../Icons/unbooked-chair.svg":"Mahanoro_station_app/Icons/unbooked-chair.svg","../Icons/red-seat.png":"Mahanoro_station_app/Icons/red-seat.png","../Actions":"Mahanoro_station_app/Actions/index.js","../Icons/yellow-seats.png":"Mahanoro_station_app/Icons/yellow-seats.png"}],"Mahanoro_station_app/Icons/small-bus-title.png":[function(require,module,exports) {
 module.exports = "/small-bus-title.f9ff175d.png";
 },{}],"Mahanoro_station_app/Containers/Header.js":[function(require,module,exports) {
 "use strict";
@@ -38943,35 +39133,7 @@ function NextTripsToContainer() {
     }, "Book a seat")));
   }));
 }
-},{"react":"node_modules/react/index.js","react-redux":"node_modules/react-redux/es/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","../Components":"Mahanoro_station_app/Components/index.js","../Components/NextTrips/styles/nextTrip":"Mahanoro_station_app/Components/NextTrips/styles/nextTrip.js","../Icons/clock.svg":"Mahanoro_station_app/Icons/clock.svg"}],"Mahanoro_station_app/Actions/index.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.destionation = destionation;
-exports.bookedSeats = bookedSeats;
-
-function destionation() {
-  return async dispatch => {
-    const res = await fetch(`https://gist.githubusercontent.com/Pinois/36bb5fbf9b6a686f0baf4006dd137bca/raw/a40d8b3f696a75f388db286d57bdd05a925fa0e7/trips.json`);
-    const destinations = await res.json();
-    return dispatch({
-      type: "DESTINATION",
-      value: destinations
-    });
-  };
-}
-
-function bookedSeats(seat) {
-  return {
-    type: "BOOK_SEATS",
-    value: seat
-  };
-}
-
-const chair = "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.cleanpng.com%2Fpng-airplane-chair-seat-computer-icons-emoji-seat-icon-5278406%2Fpreview.html&psig=AOvVaw2emjj6g7qS36Z4ILcMBl_D&ust=1613534941125000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCNi-1Y297u4CFQAAAAAdAAAAABAD";
-},{}],"Mahanoro_station_app/Components/Home/styles/home.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","react-redux":"node_modules/react-redux/es/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","../Components":"Mahanoro_station_app/Components/index.js","../Components/NextTrips/styles/nextTrip":"Mahanoro_station_app/Components/NextTrips/styles/nextTrip.js","../Icons/clock.svg":"Mahanoro_station_app/Icons/clock.svg"}],"Mahanoro_station_app/Components/Home/styles/home.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -39077,28 +39239,32 @@ exports.default = void 0;
 
 var _react = _interopRequireDefault(require("react"));
 
-var _account = _interopRequireDefault(require("../Icons/account.png"));
+var _Components = require("../Components");
+
+var _account = require("../Components/MyAccount/style/account");
+
+var _account2 = _interopRequireDefault(require("../Icons/account.png"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function MyAccount() {
-  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("img", {
-    src: _account.default
-  }), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h2", null, "My Account"), /*#__PURE__*/_react.default.createElement("span", null, "Petah Jeannie"))), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h3", null, "my personnal informations:"), /*#__PURE__*/_react.default.createElement("form", null, /*#__PURE__*/_react.default.createElement("label", null, "First Name: "), /*#__PURE__*/_react.default.createElement("p", null, /*#__PURE__*/_react.default.createElement("input", {
+  return /*#__PURE__*/_react.default.createElement(_account.Container, null, /*#__PURE__*/_react.default.createElement(_Components.MyAccountStyle.Group, null, /*#__PURE__*/_react.default.createElement("img", {
+    src: _account2.default
+  }), /*#__PURE__*/_react.default.createElement(_Components.MyAccountStyle.Title, null, /*#__PURE__*/_react.default.createElement("h2", null, "My Account"), /*#__PURE__*/_react.default.createElement("span", null, "Petah Jeannie"))), /*#__PURE__*/_react.default.createElement(_Components.MyAccountStyle.SubGroup, null, /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h3", null, "my personnal informations:"), /*#__PURE__*/_react.default.createElement("form", null, /*#__PURE__*/_react.default.createElement("label", null, "First Name: "), /*#__PURE__*/_react.default.createElement("p", null, /*#__PURE__*/_react.default.createElement(_Components.MyAccountStyle.Input, {
     type: "text",
     value: "Petah"
-  })), /*#__PURE__*/_react.default.createElement("label", null, "Last Name: "), /*#__PURE__*/_react.default.createElement("p", null, /*#__PURE__*/_react.default.createElement("input", {
+  })), /*#__PURE__*/_react.default.createElement("label", null, "Last Name: "), /*#__PURE__*/_react.default.createElement("p", null, /*#__PURE__*/_react.default.createElement(_Components.MyAccountStyle.Input, {
     type: "text",
     value: "Jeannie"
-  })), /*#__PURE__*/_react.default.createElement("label", null, "Phone Number: "), /*#__PURE__*/_react.default.createElement("p", null, /*#__PURE__*/_react.default.createElement("input", {
+  })), /*#__PURE__*/_react.default.createElement("label", null, "Phone Number: "), /*#__PURE__*/_react.default.createElement("p", null, /*#__PURE__*/_react.default.createElement(_Components.MyAccountStyle.Input, {
     type: "number",
     value: "034 55 030 89"
-  })), /*#__PURE__*/_react.default.createElement("button", null, "Update"))), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h3", null, "My bookings:"))));
+  })), /*#__PURE__*/_react.default.createElement(_Components.MyAccountStyle.SubmitBtn, null, "Update"))), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h3", null, "My bookings:"))));
 }
 
 var _default = MyAccount;
 exports.default = _default;
-},{"react":"node_modules/react/index.js","../Icons/account.png":"Mahanoro_station_app/Icons/account.png"}],"Mahanoro_station_app/MahanorStationApp.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","../Components":"Mahanoro_station_app/Components/index.js","../Components/MyAccount/style/account":"Mahanoro_station_app/Components/MyAccount/style/account.js","../Icons/account.png":"Mahanoro_station_app/Icons/account.png"}],"Mahanoro_station_app/MahanorStationApp.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -39176,7 +39342,6 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.destinations = destinations;
-exports.bookingSeats = bookingSeats;
 exports.rootReducers = void 0;
 
 var _redux = require("redux");
@@ -39187,17 +39352,8 @@ function destinations(state = [], action) {
       return action.value;
       break;
 
-    default:
-      return state;
-      break;
-  }
-}
-
-function bookingSeats(state = [], action) {
-  switch (action.type) {
-    case "BOOK_SEATS":
-      return action.value;
-      break;
+    case "ADD_SEATS":
+      return [...state, action.value];
 
     default:
       return state;
@@ -39206,9 +39362,7 @@ function bookingSeats(state = [], action) {
 }
 
 const rootReducers = (0, _redux.combineReducers)({
-  destinations,
-  // nextDestinationTo,
-  bookingSeats
+  destinations
 });
 exports.rootReducers = rootReducers;
 },{"redux":"node_modules/redux/es/redux.js"}],"state.js":[function(require,module,exports) {
@@ -39222,8 +39376,7 @@ exports.default = void 0;
 var _Reducers = require("./Mahanoro_station_app/Reducers");
 
 var _default = {
-  destinations: [],
-  bookingSeats: {}
+  destinations: []
 };
 exports.default = _default;
 },{"./Mahanoro_station_app/Reducers":"Mahanoro_station_app/Reducers/index.js"}],"store.js":[function(require,module,exports) {
@@ -39297,7 +39450,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64430" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51072" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
