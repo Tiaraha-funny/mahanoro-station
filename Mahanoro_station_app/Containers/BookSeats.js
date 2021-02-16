@@ -3,9 +3,9 @@ import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { BookSeat } from "../Components";
 import { Container } from "../Components/BookSeat/style/bookSeat";
-import BookSeatsContent from "./BookSeatsContent";
 import ModalContainer from "./Modal";
-// import {BookSeatsContent} from "./BookSeatsContent";
+import availableChair from "../Icons/unbooked-chair.svg";
+import unavailableChair from "../Icons/red-seat.png";
 
 export default function BookSeatsContainer() {
   const { tripId } = useParams();
@@ -13,26 +13,23 @@ export default function BookSeatsContainer() {
   const booking = useSelector((state) => state.bookingSeats);
   console.log("booking", booking);
 
-  const [modalOn, setModalOn ] = useState(false);
+  const [modalOn, setModalOn] = useState(false);
 
   const destinationsDetails =
     destinations !== [] && destinations.filter((trip) => trip.id === tripId);
 
-  console.log("destinations", destinations);
-
   const cities =
     destinations !== [] && destinations.map((city) => city.destination);
-
-  console.log("citie", cities);
 
   const getIdOfWhatIClicked =
     destinations !== [] && destinations.find((seat) => seat.id == tripId);
 
-  console.log("I can find the id here", getIdOfWhatIClicked);
-  
-  console.log("But I can't display it like this in my display", getIdOfWhatIClicked.id);
+    console.log("seats", getIdOfWhatIClicked.seats);
 
-  const getSeatsFromThisDestination = destinations !== [] && getIdOfWhatIClicked && getIdOfWhatIClicked.seats.find(seat => seat.id);
+  const getSeatsFromThisDestination =
+    destinations !== [] &&
+    getIdOfWhatIClicked &&
+    getIdOfWhatIClicked.seats.find((seat) => seat.id == tripId);
 
   console.log("get seats from teh destina", getSeatsFromThisDestination);
 
@@ -43,7 +40,9 @@ export default function BookSeatsContainer() {
       <BookSeat.Group>
         <BookSeat.PickSeat>
           <div>Pick a seat</div>
-          <div>icons</div>
+          <BookSeat.Seats>{getIdOfWhatIClicked.seats.map((seat) => (
+            <div key={seat.id} >{seat.isAvailable ? <img src={availableChair}/> : <img src={unavailableChair} />}</div>
+          )) }</BookSeat.Seats>
         </BookSeat.PickSeat>
         <BookSeat.Info>
           <div>Trip information</div>
@@ -60,7 +59,9 @@ export default function BookSeatsContainer() {
             <div></div>
           </BookSeat.InfoContent>
           <BookSeat.InfoContent>
-            <div>Estimated duration: {getIdOfWhatIClicked.estimatedDuration} </div>
+            <div>
+              Estimated duration: {getIdOfWhatIClicked.estimatedDuration}{" "}
+            </div>
             <div></div>
           </BookSeat.InfoContent>
           <BookSeat.InfoContent>
@@ -69,7 +70,9 @@ export default function BookSeatsContainer() {
           </BookSeat.InfoContent>
           <BookSeat.InfoContent>
             <div> {getIdOfWhatIClicked.price} Ar / seat</div>
-            <button onClick={() => setModalOn(true)} >book {getIdOfWhatIClicked.seats.length} seat</button>
+            <button onClick={() => setModalOn(true)}>
+              book {getIdOfWhatIClicked.seats.length} seat
+            </button>
             <div>Total: </div>
           </BookSeat.InfoContent>
         </BookSeat.Info>

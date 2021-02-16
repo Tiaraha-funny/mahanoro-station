@@ -4,6 +4,10 @@ import { destionation } from "../Actions";
 import { Home } from "../Components";
 import { Container } from "../Components/Home/styles/home";
 
+import destinationSvg from "../Icons/destination.svg";
+
+const bus = `https://w7.pngwing.com/pngs/31/888/png-transparent-bus-emoji-unicode-noto-fonts-sms-mount-fuji-angle-multimedia-messaging-service-orange.png`;
+
 export default function HomePages() {
   const destinations = useSelector((state) => state.destinations);
   const dispatch = useDispatch();
@@ -26,12 +30,14 @@ export default function HomePages() {
 
   return (
     <Container>
-      <Home.Title>Where are you going?</Home.Title>
+      <Home.Title>
+        <Home.BusIcon src={bus} />
+        Where are you going?</Home.Title>
       <Home.BtnGroup>
         {destinations !== [] &&
           getCitiesNeeded.map((trip) => (
             <Home.LinkButton key={trip} to={`/destination/${trip}`}>
-              {trip}
+              <img src={destinationSvg} /> <span>{trip}</span>
             </Home.LinkButton>
           ))}
       </Home.BtnGroup>

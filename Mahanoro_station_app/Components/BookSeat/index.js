@@ -1,5 +1,5 @@
 import React from "react";
-import { Group, Title, SubGroup, PickSeat, Info, InfoContent, Container, SubTitle } from "../BookSeat/style/bookSeat";
+import { Group, Title, SubGroup, PickSeat, Info, InfoContent, Container, SubTitle, Seats } from "../BookSeat/style/bookSeat";
 
 export default function BookSeat({children, ...restProps}) {
     return <Container {...restProps}>{children}</Container>
@@ -16,6 +16,11 @@ BookSeat.SubTitle = function BookSeatSubTitle({children, ...restProps}) {
 BookSeat.Group = function BookSeatGroup({children, ...restProps}) {
     return <Group {...restProps} >{children}</Group>
 }
+
+BookSeat.Seats = function BookSeatSeats({children, ...restProps}) {
+    return <Seats {...restProps} >{children}</Seats>
+}
+
 BookSeat.SubGroup = function BookSeatSubGroup({children, ...restProps}) {
     return <SubGroup {...restProps} >{children}</SubGroup>
 }

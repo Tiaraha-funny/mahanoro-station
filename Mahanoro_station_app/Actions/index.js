@@ -15,3 +15,5 @@ export function bookedSeats(seat) {
         value: seat
     }
 }
+
+const chair = "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.cleanpng.com%2Fpng-airplane-chair-seat-computer-icons-emoji-seat-icon-5278406%2Fpreview.html&psig=AOvVaw2emjj6g7qS36Z4ILcMBl_D&ust=1613534941125000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCNi-1Y297u4CFQAAAAAdAAAAABAD";

@@ -1,6 +1,6 @@
 import React from "react";
 import { Link as ReachRouterLink } from "react-router-dom";
-import { Container, Title, BtnGroup, LinkButton } from "./Styles/home";
+import { Container, Title, BtnGroup, LinkButton, BusIcon } from "./Styles/home";
 
 export default function Home({ children, ...restProps }) {
   return <Container {...restProps}>{children}</Container>;
@@ -24,4 +24,8 @@ Home.LinkButton = function HomeLinkButton({ to, ...restProps }) {
       <LinkButton {...restProps} />
     </ReachRouterLink>
   );
+};
+
+Home.BusIcon = function HomeBusIcon({ children, ...restProps }) {
+  return <BusIcon {...restProps}>{children}</BusIcon>;
 };

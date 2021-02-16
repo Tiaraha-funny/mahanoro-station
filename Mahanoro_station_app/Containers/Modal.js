@@ -1,5 +1,7 @@
 import React from "react";
 import styled from "styled-components";
+import tick from "../Icons/tick.png";
+import {Link as ReachRouterLink} from "react-router-dom";
 
 export default function ModalContainer({ modalOn, setModalOn }) {
   //   const classNames = modalOn ? "display-block" : "display-none";
@@ -19,24 +21,59 @@ export default function ModalContainer({ modalOn, setModalOn }) {
     background-color: white;
     width: 50%;
     left: 30%;
-    bottom: 50%;
+    bottom: 10%;
     position: fixed;
-    border: 5px solid #E53170;
+    border: 5px solid #e53170;
     box-sizing: border-box;
+    height: 400px;
+    text-align: center;
+    padding: 50px;
+  `;
+
+  const CloseBtn = styled.button`
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    border: none;
+    background: none;
+  `;
+
+  const Title = styled.div`
+    display: flex;
+    align-items: center;
+
+    h2 {
+      font-weight: bold;
+      font-size: 36px;
+      line-height: 43px;
+      text-transform: uppercase;
+    }
+    ~ p {
+      margin-bottom: 50px;
+    }
+  `;
+
+  const LinkToAccount = styled(ReachRouterLink)`
+  background-color:  #E53170;
+  padding: 16px;
+  color: white;
   `;
 
   return (
     <Modal>
       <ModalInner>
         <div>
-          <div>Booking comfirmed!</div>
+          <Title>
+            <img src={tick} />
+            <h2>Booking comfirmed!</h2>
+          </Title>
           <p>
             Thank you for trusting our services. Your booking has been added to
             your account. You can review it there.
           </p>
-          <button>Check your account</button>
+          <LinkToAccount to={`/myAccount`} >Check your account</LinkToAccount>
         </div>
-        <button onClick={() => setModalOn(false)}>X</button>
+        <CloseBtn onClick={() => setModalOn(false)}>X</CloseBtn>
       </ModalInner>
     </Modal>
   );
