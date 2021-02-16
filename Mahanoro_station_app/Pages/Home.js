@@ -19,20 +19,17 @@ export default function HomePages() {
   const cities =
     destinations !== [] && destinations.map((city) => city.destination);
 
-  const getCitiesNeeded =
-    destinations !== [] &&
-    destinations
-      .map((city) => city.destination)
-      .filter((data, index) => {
-        return cities.indexOf(data) === index;
-      });
-  console.log(getCitiesNeeded);
+  const getCitiesNeeded = cities.filter((data, index) => {
+    console.log("data", data);
+    return cities.indexOf(data) === index;
+  });
 
   return (
     <Container>
       <Home.Title>
         <Home.BusIcon src={bus} />
-        Where are you going?</Home.Title>
+        Where are you going?
+      </Home.Title>
       <Home.BtnGroup>
         {destinations !== [] &&
           getCitiesNeeded.map((trip) => (

@@ -17,7 +17,7 @@ export default function BookSeatsContainer() {
   const destinations = useSelector((state) => state.destinations);
 
   const destinationsDetails =
-    destinations !== [] && destinations.filter((trip) => trip.id === tripId);
+    destinations !== [] && destinations.filter((trip) => trip.id == tripId);
 
   const cities =
     destinations !== [] && destinations.map((city) => city.destination);
@@ -30,10 +30,11 @@ export default function BookSeatsContainer() {
     getIdOfWhatIClicked &&
     getIdOfWhatIClicked.seats.find((seat) => seat.id == tripId);
 
-    console.log("destinations", getIdOfWhatIClicked);
 
     const newTotal = destinations !== [] && getIdOfWhatIClicked.price;
-    const totalAmount = Number(newTotal + getSeatsFromThisDestination.price)
+    console.log("new total", newTotal);
+
+    const totalAmount = Number(newTotal + getIdOfWhatIClicked.price)
 
   function handlePickSeats(seat) {
     addSeats(seat);
