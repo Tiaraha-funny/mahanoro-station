@@ -38197,9 +38197,11 @@ exports.GlobalStyles = GlobalStyles;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.SubmitBtn = exports.Label = exports.Form = exports.Content = exports.Input = exports.SubGroup = exports.Group = exports.Title = exports.Container = void 0;
+exports.Cancel = exports.Wrapper = exports.Info = exports.SubmitBtn = exports.Label = exports.Form = exports.Content = exports.Input = exports.SubGroup = exports.Group = exports.Title = exports.Container = void 0;
 
 var _styledComponents = _interopRequireDefault(require("styled-components"));
+
+var _reactRouterDom = require("react-router-dom");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -38230,6 +38232,10 @@ const SubGroup = _styledComponents.default.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
+
+  h3 {
+    font-size: 30px;
+  }
 `;
 exports.SubGroup = SubGroup;
 const Input = _styledComponents.default.input`
@@ -38237,22 +38243,51 @@ const Input = _styledComponents.default.input`
   width: 80%;
   padding: 20px;
   color: #ff8906;
+  font-size: 20px;
 `;
 exports.Input = Input;
 const Content = _styledComponents.default.div``;
 exports.Content = Content;
 const Form = _styledComponents.default.form``;
 exports.Form = Form;
-const Label = _styledComponents.default.label``;
+const Label = _styledComponents.default.label`
+font-size: 25px;
+`;
 exports.Label = Label;
-const SubmitBtn = _styledComponents.default.button`
+const SubmitBtn = (0, _styledComponents.default)(_reactRouterDom.Link)`
 background-color: #E53170;
 padding: 20px;
 color: white;
 font-size: 20px;
 `;
 exports.SubmitBtn = SubmitBtn;
-},{"styled-components":"node_modules/styled-components/dist/styled-components.browser.esm.js"}],"Mahanoro_station_app/Components/MyAccount/index.js":[function(require,module,exports) {
+const Info = _styledComponents.default.div`
+font-weight: 500;
+font-size: 24px;
+color: #000000;
+`;
+exports.Info = Info;
+const Wrapper = _styledComponents.default.div`
+display: flex;
+justify-content: space-around;
+align-items: center;
+
+div {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+`;
+exports.Wrapper = Wrapper;
+const Cancel = _styledComponents.default.button`
+background-color: #FF8906;
+font-size: 24px;
+letter-spacing: 0.05em;
+text-transform: uppercase;
+color: #FFFFFF;
+padding: 16px;
+`;
+exports.Cancel = Cancel;
+},{"styled-components":"node_modules/styled-components/dist/styled-components.browser.esm.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js"}],"Mahanoro_station_app/Components/MyAccount/index.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -38278,6 +38313,13 @@ MyAccountStyle.Title = function MyAccountStyleTitle({
   ...restProps
 }) {
   return /*#__PURE__*/_react.default.createElement(_account.Title, restProps, children);
+};
+
+MyAccountStyle.Cancel = function MyAccountStyleCancel({
+  children,
+  ...restProps
+}) {
+  return /*#__PURE__*/_react.default.createElement(_account.Cancel, restProps, children);
 };
 
 MyAccountStyle.Group = function MyAccountStyleGroup({
@@ -38320,6 +38362,20 @@ MyAccountStyle.SubmitBtn = function MyAccountStyleSubmitBtn({
   ...restProps
 }) {
   return /*#__PURE__*/_react.default.createElement(_account.SubmitBtn, restProps, children);
+};
+
+MyAccountStyle.Info = function MyAccountStyleInfo({
+  children,
+  ...restProps
+}) {
+  return /*#__PURE__*/_react.default.createElement(_account.Info, restProps, children);
+};
+
+MyAccountStyle.Wrapper = function MyAccountStyleWrapper({
+  children,
+  ...restProps
+}) {
+  return /*#__PURE__*/_react.default.createElement(_account.Wrapper, restProps, children);
 };
 },{"react":"node_modules/react/index.js","../MyAccount/style/account":"Mahanoro_station_app/Components/MyAccount/style/account.js"}],"Mahanoro_station_app/Components/Header/Styles/Header.js":[function(require,module,exports) {
 "use strict";
@@ -38404,7 +38460,7 @@ Header.BusIcon = function HeaderBusIcon({
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.BusIcon = exports.BtnGroup = exports.LinkButton = exports.Title = exports.Container = void 0;
+exports.BusIcon = exports.BtnGroup = exports.LinkButton = exports.SubTitle = exports.Title = exports.Container = void 0;
 
 var _styledComponents = _interopRequireDefault(require("styled-components"));
 
@@ -38417,9 +38473,19 @@ const Container = _styledComponents.default.section`
 exports.Container = Container;
 const Title = _styledComponents.default.h1`
 font-weight: bold;
-font-size: 64px;
+
+display: flex;
+align-items: center;
+
+img {
+  margin-right: 30px;
+}
 `;
 exports.Title = Title;
+const SubTitle = _styledComponents.default.div`
+font-size: 64px;
+`;
+exports.SubTitle = SubTitle;
 const LinkButton = _styledComponents.default.button`
   background-color: #0f0e17;
   color: #ffffff;
@@ -38430,6 +38496,11 @@ const LinkButton = _styledComponents.default.button`
   display: flex;
   justify-content: space-around;
   align-items: center;
+  flex-wrap: wrap;
+
+  span {
+    font-size: 30px;
+  }
 `;
 exports.LinkButton = LinkButton;
 const BtnGroup = _styledComponents.default.div`
@@ -38470,6 +38541,13 @@ Home.Title = function HomeTitle({
   ...restProps
 }) {
   return /*#__PURE__*/_react.default.createElement(_home.Title, restProps, children);
+};
+
+Home.SubTitle = function HomeSubTitle({
+  children,
+  ...restProps
+}) {
+  return /*#__PURE__*/_react.default.createElement(_home.SubTitle, restProps, children);
 };
 
 Home.BtnGroup = function HomeBtnGroup({
@@ -38528,14 +38606,17 @@ background-color: #E53170;
 color: #ffffff;
 padding: 20px;
 font-weight: 600px;
+font-size: 25px;
 `;
 exports.LinkButtonNum = LinkButtonNum;
 const LinkButtonNone = _styledComponents.default.button`
-background-color: #E53170;
-color: #ffffff;
-padding: 20px;
-font-weight: 600px;
-opacity: 0.5;
+    background-color: #E53170;
+    color: #ffffff;
+    padding: 20px;
+    font-weight: 600px;
+    opacity: 0.5;
+    font-size: 25px;
+    cursor: not-allowed;
 `;
 exports.LinkButtonNone = LinkButtonNone;
 const Group = _styledComponents.default.div`
@@ -38564,9 +38645,13 @@ line-height: 76px;
 exports.GroupTitle = GroupTitle;
 const SubGroup = _styledComponents.default.div`
 margin-bottom: 20px;
+font-size: 36px;
+line-height: 43px;
 `;
 exports.SubGroup = SubGroup;
-const Date = _styledComponents.default.div``;
+const Date = _styledComponents.default.div`
+color: #FF8906;
+`;
 exports.Date = Date;
 const Time = _styledComponents.default.div``;
 exports.Time = Time;
@@ -38577,7 +38662,7 @@ width: 100px;
 `;
 exports.Icons = Icons;
 const BusIcon = _styledComponents.default.img`
-width: 50px;
+width: 70px;
 `;
 exports.BusIcon = BusIcon;
 },{"styled-components":"node_modules/styled-components/dist/styled-components.browser.esm.js"}],"Mahanoro_station_app/Components/NextTrips/index.js":[function(require,module,exports) {
@@ -38671,6 +38756,13 @@ NextTrips.GroupTitle = function NextTripsGroupTitle({
   return /*#__PURE__*/_react.default.createElement(_nextTrip.GroupTitle, restProps, children);
 };
 
+NextTrips.SeatBnt = function NextTripsSeatBnt({
+  children,
+  ...restProps
+}) {
+  return /*#__PURE__*/_react.default.createElement(_nextTrip.SeatBnt, restProps, children);
+};
+
 NextTrips.BusIcon = function NextTripsBusIcon({
   children,
   ...restProps
@@ -38683,52 +38775,124 @@ NextTrips.BusIcon = function NextTripsBusIcon({
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.Info = exports.InfoContent = exports.PickSeat = exports.Title = exports.Seats = exports.SubTitle = exports.SubGroup = exports.Group = exports.Container = void 0;
+exports.InfoContentTitle = exports.Description = exports.Span = exports.SubInfo = exports.SecondInfo = exports.Info = exports.GroupTitle = exports.InfoContent = exports.PickSeat = exports.Unavailable = exports.Wrapper = exports.Title = exports.Seats = exports.SubTitle = exports.SubGroup = exports.Group = exports.Container = void 0;
 
 var _styledComponents = _interopRequireDefault(require("styled-components"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 const Container = _styledComponents.default.section`
-width: 80%;
-margin: auto;
+  width: 80%;
+  margin: auto;
 `;
 exports.Container = Container;
 const Group = _styledComponents.default.div`
-display: flex;
-flex-direction: row;
-justify-content: space-around;
-align-items: center;    
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
 `;
 exports.Group = Group;
 const SubGroup = _styledComponents.default.div``;
 exports.SubGroup = SubGroup;
 const SubTitle = _styledComponents.default.h1`
-color: #000000;
+  color: #000000;
 `;
 exports.SubTitle = SubTitle;
 const Seats = _styledComponents.default.div`
-display: grid;
-grid-template-columns: repeat(4, 1fr);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  margin-top: 50px;
 `;
 exports.Seats = Seats;
-const Title = _styledComponents.default.h2`
-color: #E53170;
-text-decoration: uppercase;
+const Title = _styledComponents.default.div`
+  color: #e53170;
+  text-decoration: uppercase;
 `;
 exports.Title = Title;
-const PickSeat = _styledComponents.default.div``;
+const Wrapper = _styledComponents.default.div`
+`;
+exports.Wrapper = Wrapper;
+const Unavailable = _styledComponents.default.img`
+cursor: not-allowed;
+`;
+exports.Unavailable = Unavailable;
+const PickSeat = _styledComponents.default.div`
+  margin: 0;
+  margin-top: -185px;
+
+  button {
+    background-color: white;
+    border: none;
+    outline: none;
+  }
+`;
 exports.PickSeat = PickSeat;
 const InfoContent = _styledComponents.default.div`
-button {
-    background-color:  #E53170;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 28px;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  button {
+    background-color: #e53170;
     padding: 16px;
     color: white;
-}
+    font-size: 30px;
+  }
 `;
 exports.InfoContent = InfoContent;
+const GroupTitle = _styledComponents.default.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  width: 50%;
+  margin: auto;
+
+  font-weight: bold;
+  font-size: 35px;
+
+  img {
+    margin-right: 50px;
+  }
+`;
+exports.GroupTitle = GroupTitle;
 const Info = _styledComponents.default.div``;
 exports.Info = Info;
+const SecondInfo = _styledComponents.default.div`
+  margin-top: 86px;
+`;
+exports.SecondInfo = SecondInfo;
+const SubInfo = _styledComponents.default.div`
+  font-size: 24px;
+  line-height: 28px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+`;
+exports.SubInfo = SubInfo;
+const Span = _styledComponents.default.span`
+  font-size: 48px;
+  line-height: 57px;
+  color: #ff8906;
+`;
+exports.Span = Span;
+const Description = _styledComponents.default.p`
+  font-weight: 500;
+  font-size: 24px;
+  color: #000000;
+  margin-left: 20px;
+`;
+exports.Description = Description;
+const InfoContentTitle = _styledComponents.default.p`
+  font-weight: 500;
+  font-size: 24px;
+  color: #94989b;
+`;
+exports.InfoContentTitle = InfoContentTitle;
 },{"styled-components":"node_modules/styled-components/dist/styled-components.browser.esm.js"}],"Mahanoro_station_app/Components/BookSeat/index.js":[function(require,module,exports) {
 "use strict";
 
@@ -38757,6 +38921,41 @@ BookSeat.Title = function BookSeatTitle({
   return /*#__PURE__*/_react.default.createElement(_bookSeat.Title, restProps, children);
 };
 
+BookSeat.Unavailable = function BookSeatUnavailable({
+  children,
+  ...restProps
+}) {
+  return /*#__PURE__*/_react.default.createElement(_bookSeat.Unavailable, restProps);
+};
+
+BookSeat.Span = function BookSeatSpan({
+  children,
+  ...restProps
+}) {
+  return /*#__PURE__*/_react.default.createElement(_bookSeat.Span, restProps, children);
+};
+
+BookSeat.InfoContentTitle = function BookSeatInfoContentTitle({
+  children,
+  ...restProps
+}) {
+  return /*#__PURE__*/_react.default.createElement(_bookSeat.InfoContentTitle, restProps, children);
+};
+
+BookSeat.Description = function BookSeatDescription({
+  children,
+  ...restProps
+}) {
+  return /*#__PURE__*/_react.default.createElement(_bookSeat.Description, restProps, children);
+};
+
+BookSeat.Wrapper = function BookSeatWrapper({
+  children,
+  ...restProps
+}) {
+  return /*#__PURE__*/_react.default.createElement(_bookSeat.Wrapper, restProps, children);
+};
+
 BookSeat.SubTitle = function BookSeatSubTitle({
   children,
   ...restProps
@@ -38769,6 +38968,13 @@ BookSeat.Group = function BookSeatGroup({
   ...restProps
 }) {
   return /*#__PURE__*/_react.default.createElement(_bookSeat.Group, restProps, children);
+};
+
+BookSeat.GroupTitle = function BookSeatGroupTitle({
+  children,
+  ...restProps
+}) {
+  return /*#__PURE__*/_react.default.createElement(_bookSeat.GroupTitle, restProps, children);
 };
 
 BookSeat.Seats = function BookSeatSeats({
@@ -38797,6 +39003,20 @@ BookSeat.Info = function BookSeatInfo({
   ...restProps
 }) {
   return /*#__PURE__*/_react.default.createElement(_bookSeat.Info, restProps, children);
+};
+
+BookSeat.SecondInfo = function BookSeatSecondInfo({
+  children,
+  ...restProps
+}) {
+  return /*#__PURE__*/_react.default.createElement(_bookSeat.SecondInfo, restProps, children);
+};
+
+BookSeat.SubInfo = function BookSeatSubInfo({
+  children,
+  ...restProps
+}) {
+  return /*#__PURE__*/_react.default.createElement(_bookSeat.SubInfo, restProps, children);
 };
 
 BookSeat.InfoContent = function BookSeatInfoContent({
@@ -38877,7 +39097,6 @@ function ModalContainer({
   modalOn,
   setModalOn
 }) {
-  //   const classNames = modalOn ? "display-block" : "display-none";
   const Modal = _styledComponents.default.div`
     z-index: auto;
     position: fixed;
@@ -38888,44 +39107,6 @@ function ModalContainer({
     width: 100vw;
     background-color: rgba(255, 255, 255, 0.8);
   `;
-  const ModalInner = _styledComponents.default.div`
-    background-color: white;
-    width: 50%;
-    left: 30%;
-    bottom: 10%;
-    position: fixed;
-    border: 5px solid #e53170;
-    box-sizing: border-box;
-    height: 400px;
-    text-align: center;
-    padding: 50px;
-  `;
-  const CloseBtn = _styledComponents.default.button`
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    border: none;
-    background: none;
-  `;
-  const Title = _styledComponents.default.div`
-    display: flex;
-    align-items: center;
-
-    h2 {
-      font-weight: bold;
-      font-size: 36px;
-      line-height: 43px;
-      text-transform: uppercase;
-    }
-    ~ p {
-      margin-bottom: 50px;
-    }
-  `;
-  const LinkToAccount = (0, _styledComponents.default)(_reactRouterDom.Link)`
-  background-color:  #E53170;
-  padding: 16px;
-  color: white;
-  `;
   return /*#__PURE__*/_react.default.createElement(Modal, null, /*#__PURE__*/_react.default.createElement(ModalInner, null, /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement(Title, null, /*#__PURE__*/_react.default.createElement("img", {
     src: _tick.default
   }), /*#__PURE__*/_react.default.createElement("h2", null, "Booking comfirmed!")), /*#__PURE__*/_react.default.createElement("p", null, "Thank you for trusting our services. Your booking has been added to your account. You can review it there."), /*#__PURE__*/_react.default.createElement(LinkToAccount, {
@@ -38934,47 +39115,53 @@ function ModalContainer({
     onClick: () => setModalOn(false)
   }, "X")));
 }
+
+const ModalInner = _styledComponents.default.div`
+  background-color: white;
+  width: 50%;
+  left: 30%;
+  bottom: 10%;
+  position: fixed;
+  border: 5px solid #e53170;
+  box-sizing: border-box;
+  height: 400px;
+  text-align: center;
+  padding: 50px;
+`;
+const CloseBtn = _styledComponents.default.button`
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  border: none;
+  background: none;
+`;
+const Title = _styledComponents.default.div`
+  display: flex;
+  align-items: center;
+
+  h2 {
+    font-weight: bold;
+    font-size: 36px;
+    line-height: 43px;
+    text-transform: uppercase;
+  }
+  ~ p {
+    margin-bottom: 50px;
+  }
+`;
+const LinkToAccount = (0, _styledComponents.default)(_reactRouterDom.Link)`
+  background-color: #e53170;
+  padding: 16px;
+  color: white;
+`;
 },{"react":"node_modules/react/index.js","styled-components":"node_modules/styled-components/dist/styled-components.browser.esm.js","../Icons/tick.png":"Mahanoro_station_app/Icons/tick.png","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js"}],"Mahanoro_station_app/Icons/unbooked-chair.svg":[function(require,module,exports) {
 module.exports = "/unbooked-chair.537afb31.svg";
 },{}],"Mahanoro_station_app/Icons/red-seat.png":[function(require,module,exports) {
 module.exports = "/red-seat.a36485d3.png";
-},{}],"Mahanoro_station_app/Actions/index.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.destionation = destionation;
-exports.bookedSeats = bookedSeats;
-exports.addSeats = addSeats;
-
-function destionation() {
-  return async dispatch => {
-    const res = await fetch(`https://gist.githubusercontent.com/Pinois/36bb5fbf9b6a686f0baf4006dd137bca/raw/a40d8b3f696a75f388db286d57bdd05a925fa0e7/trips.json`);
-    const destinations = await res.json();
-    return dispatch({
-      type: "DESTINATION",
-      value: destinations
-    });
-  };
-}
-
-function bookedSeats(seat) {
-  return {
-    type: "BOOK_SEATS",
-    value: seat
-  };
-}
-
-function addSeats(seats) {
-  console.log(seats);
-  return {
-    type: "ADD_SEATS",
-    value: seats
-  };
-}
 },{}],"Mahanoro_station_app/Icons/yellow-seats.png":[function(require,module,exports) {
 module.exports = "/yellow-seats.48c546b0.png";
+},{}],"Mahanoro_station_app/Icons/bus.png":[function(require,module,exports) {
+module.exports = "/bus.ca2a9bdb.png";
 },{}],"Mahanoro_station_app/Containers/BookSeats.js":[function(require,module,exports) {
 "use strict";
 
@@ -38999,9 +39186,9 @@ var _unbookedChair = _interopRequireDefault(require("../Icons/unbooked-chair.svg
 
 var _redSeat = _interopRequireDefault(require("../Icons/red-seat.png"));
 
-var _Actions = require("../Actions");
-
 var _yellowSeats = _interopRequireDefault(require("../Icons/yellow-seats.png"));
+
+var _bus = _interopRequireDefault(require("../Icons/bus.png"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -39010,44 +39197,45 @@ function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
 function BookSeatsContainer() {
+  //Iuse state tohandle all the cahnged in the display
   const [modalOn, setModalOn] = (0, _react.useState)(false);
-  const [totlaPrice, setTotalPrice] = (0, _react.useState)(0);
+  const [countSeat, setCountSeat] = (0, _react.useState)(0);
+  const [totalPrice, setTotalPrice] = (0, _react.useState)(0);
+  const [image, setImage] = (0, _react.useState)(_unbookedChair.default); // UseParams used to get the unique id from when I link the link from the seat button
+
   const {
     tripId
-  } = (0, _reactRouterDom.useParams)();
+  } = (0, _reactRouterDom.useParams)(); // this is the global trips
+
   const destinations = (0, _reactRedux.useSelector)(state => state.destinations);
   const destinationsDetails = destinations !== [] && destinations.filter(trip => trip.id == tripId);
-  const cities = destinations !== [] && destinations.map(city => city.destination);
-  const getIdOfWhatIClicked = destinations !== [] && destinations.find(seat => seat.id == tripId);
-  const getSeatsFromThisDestination = destinations !== [] && getIdOfWhatIClicked && getIdOfWhatIClicked.seats.find(seat => seat.id == tripId);
-  const newTotal = destinations !== [] && getIdOfWhatIClicked.price;
-  console.log("new total", newTotal);
-  const totalAmount = Number(newTotal + getIdOfWhatIClicked.price);
+  const getIdOfWhatIClicked = destinations !== [] && destinations.find(seat => seat.id == tripId); //Handle the change from the state
 
-  function handlePickSeats(seat) {
-    (0, _Actions.addSeats)(seat);
+  function handlePickSeats() {
+    const totalAmount = totalPrice + getIdOfWhatIClicked.price;
+    setCountSeat(countSeat + 1);
     setTotalPrice(totalAmount);
-    return /*#__PURE__*/_react.default.createElement("img", {
-      src: _yellowSeats.default
-    });
+    setImage(_yellowSeats.default);
   }
 
-  return /*#__PURE__*/_react.default.createElement(_bookSeat.Container, null, /*#__PURE__*/_react.default.createElement(_Components.BookSeat.SubTitle, null, "Book a seat to:"), /*#__PURE__*/_react.default.createElement(_Components.BookSeat.Title, null, cities[0]), /*#__PURE__*/_react.default.createElement(_Components.BookSeat.Group, null, /*#__PURE__*/_react.default.createElement(_Components.BookSeat.PickSeat, null, /*#__PURE__*/_react.default.createElement("div", null, "Pick a seat"), /*#__PURE__*/_react.default.createElement(_Components.BookSeat.Seats, null, getIdOfWhatIClicked.seats.map(seat => /*#__PURE__*/_react.default.createElement("div", {
+  return /*#__PURE__*/_react.default.createElement(_bookSeat.Container, null, /*#__PURE__*/_react.default.createElement(_Components.BookSeat.GroupTitle, null, /*#__PURE__*/_react.default.createElement(_Components.NextTrips.BusIcon, {
+    src: _bus.default
+  }), /*#__PURE__*/_react.default.createElement(_Components.BookSeat.Info, null, /*#__PURE__*/_react.default.createElement(_Components.BookSeat.SubTitle, null, "Book a seat to:"), /*#__PURE__*/_react.default.createElement(_Components.BookSeat.Title, null, getIdOfWhatIClicked.destination))), /*#__PURE__*/_react.default.createElement(_Components.BookSeat.Group, null, /*#__PURE__*/_react.default.createElement(_Components.BookSeat.PickSeat, null, /*#__PURE__*/_react.default.createElement(_Components.BookSeat.SubInfo, null, "Pick a seat"), /*#__PURE__*/_react.default.createElement(_Components.BookSeat.Seats, null, getIdOfWhatIClicked.seats.map(seat => /*#__PURE__*/_react.default.createElement(_Components.BookSeat.Wrapper, {
     key: seat.id
   }, seat.isAvailable ? /*#__PURE__*/_react.default.createElement("button", {
     onClick: handlePickSeats
   }, /*#__PURE__*/_react.default.createElement("img", {
-    src: _unbookedChair.default
-  })) : /*#__PURE__*/_react.default.createElement("img", {
+    src: image
+  })) : /*#__PURE__*/_react.default.createElement(_Components.BookSeat.Unavailable, {
     src: _redSeat.default
-  }))))), /*#__PURE__*/_react.default.createElement(_Components.BookSeat.Info, null, /*#__PURE__*/_react.default.createElement("div", null, "Trip information"), /*#__PURE__*/_react.default.createElement(_Components.BookSeat.InfoContent, null, /*#__PURE__*/_react.default.createElement("div", null, "Departure time: ", getIdOfWhatIClicked.departureTime, " "), /*#__PURE__*/_react.default.createElement("div", null)), /*#__PURE__*/_react.default.createElement(_Components.BookSeat.InfoContent, null, /*#__PURE__*/_react.default.createElement("div", null, "Driver: ", getIdOfWhatIClicked.driverName, " "), /*#__PURE__*/_react.default.createElement("div", null)), /*#__PURE__*/_react.default.createElement(_Components.BookSeat.InfoContent, null, /*#__PURE__*/_react.default.createElement("div", null, "Driver's contact:", getIdOfWhatIClicked.driverContact, " "), /*#__PURE__*/_react.default.createElement("div", null)), /*#__PURE__*/_react.default.createElement(_Components.BookSeat.InfoContent, null, /*#__PURE__*/_react.default.createElement("div", null, "Estimated duration: ", getIdOfWhatIClicked.estimatedDuration, " "), /*#__PURE__*/_react.default.createElement("div", null)), /*#__PURE__*/_react.default.createElement(_Components.BookSeat.InfoContent, null, /*#__PURE__*/_react.default.createElement("div", null, "Breaks: ", getIdOfWhatIClicked.breaks), /*#__PURE__*/_react.default.createElement("div", null)), /*#__PURE__*/_react.default.createElement(_Components.BookSeat.InfoContent, null, /*#__PURE__*/_react.default.createElement("div", null, " ", getIdOfWhatIClicked.price, " Ar / seat"), /*#__PURE__*/_react.default.createElement("button", {
+  }))))), /*#__PURE__*/_react.default.createElement(_Components.BookSeat.SecondInfo, null, /*#__PURE__*/_react.default.createElement(_Components.BookSeat.SubInfo, null, "Trip information"), /*#__PURE__*/_react.default.createElement(_Components.BookSeat.InfoContent, null, /*#__PURE__*/_react.default.createElement(_Components.BookSeat.InfoContentTitle, null, "Departure time:"), /*#__PURE__*/_react.default.createElement(_Components.BookSeat.Description, null, new Date(getIdOfWhatIClicked.departureTime).getHours(), ":", new Date(getIdOfWhatIClicked.departureTime).getMinutes(), ",", " ", new Date(getIdOfWhatIClicked.departureTime).toLocaleDateString(), " ")), /*#__PURE__*/_react.default.createElement(_Components.BookSeat.InfoContent, null, /*#__PURE__*/_react.default.createElement(_Components.BookSeat.InfoContentTitle, null, "Driver:"), /*#__PURE__*/_react.default.createElement(_Components.BookSeat.Description, null, getIdOfWhatIClicked.driverName, " ")), /*#__PURE__*/_react.default.createElement(_Components.BookSeat.InfoContent, null, /*#__PURE__*/_react.default.createElement(_Components.BookSeat.InfoContentTitle, null, "Driver's contact:", " "), /*#__PURE__*/_react.default.createElement(_Components.BookSeat.Description, null, getIdOfWhatIClicked.driverContact)), /*#__PURE__*/_react.default.createElement(_Components.BookSeat.InfoContent, null, /*#__PURE__*/_react.default.createElement(_Components.BookSeat.InfoContentTitle, null, "Estimated duration:"), /*#__PURE__*/_react.default.createElement(_Components.BookSeat.Description, null, getIdOfWhatIClicked.estimatedDuration)), /*#__PURE__*/_react.default.createElement(_Components.BookSeat.InfoContent, null, /*#__PURE__*/_react.default.createElement(_Components.BookSeat.InfoContentTitle, null, "Breaks:"), /*#__PURE__*/_react.default.createElement(_Components.BookSeat.Description, null, getIdOfWhatIClicked.breaks)), /*#__PURE__*/_react.default.createElement(_Components.BookSeat.InfoContent, null, /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("p", null, " ", /*#__PURE__*/_react.default.createElement(_Components.BookSeat.Span, null, getIdOfWhatIClicked.price), " Ar / seat"), /*#__PURE__*/_react.default.createElement("button", {
     onClick: () => setModalOn(true)
-  }, "book ", getIdOfWhatIClicked.seats.length, " seat"), /*#__PURE__*/_react.default.createElement("div", null, "Total: ", totlaPrice, " Ar")))), modalOn && /*#__PURE__*/_react.default.createElement(_Modal.default, {
+  }, "book ", countSeat, " seat"), /*#__PURE__*/_react.default.createElement(_Components.BookSeat.Description, null, "Total: ", totalPrice, " Ar"))))), modalOn && /*#__PURE__*/_react.default.createElement(_Modal.default, {
     modalOn: modalOn,
     setModalOn: setModalOn
   }));
 }
-},{"react":"node_modules/react/index.js","react-redux":"node_modules/react-redux/es/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","../Components":"Mahanoro_station_app/Components/index.js","../Components/BookSeat/style/bookSeat":"Mahanoro_station_app/Components/BookSeat/style/bookSeat.js","./Modal":"Mahanoro_station_app/Containers/Modal.js","../Icons/unbooked-chair.svg":"Mahanoro_station_app/Icons/unbooked-chair.svg","../Icons/red-seat.png":"Mahanoro_station_app/Icons/red-seat.png","../Actions":"Mahanoro_station_app/Actions/index.js","../Icons/yellow-seats.png":"Mahanoro_station_app/Icons/yellow-seats.png"}],"Mahanoro_station_app/Icons/small-bus-title.png":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","react-redux":"node_modules/react-redux/es/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","../Components":"Mahanoro_station_app/Components/index.js","../Components/BookSeat/style/bookSeat":"Mahanoro_station_app/Components/BookSeat/style/bookSeat.js","./Modal":"Mahanoro_station_app/Containers/Modal.js","../Icons/unbooked-chair.svg":"Mahanoro_station_app/Icons/unbooked-chair.svg","../Icons/red-seat.png":"Mahanoro_station_app/Icons/red-seat.png","../Icons/yellow-seats.png":"Mahanoro_station_app/Icons/yellow-seats.png","../Icons/bus.png":"Mahanoro_station_app/Icons/bus.png"}],"Mahanoro_station_app/Icons/small-bus-title.png":[function(require,module,exports) {
 module.exports = "/small-bus-title.f9ff175d.png";
 },{}],"Mahanoro_station_app/Containers/Header.js":[function(require,module,exports) {
 "use strict";
@@ -39081,7 +39269,9 @@ function HeaderContainer() {
 
 var _default = HeaderContainer;
 exports.default = _default;
-},{"react":"node_modules/react/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","../Components":"Mahanoro_station_app/Components/index.js","../Components/Header/Styles/Header":"Mahanoro_station_app/Components/Header/Styles/Header.js","../Icons/small-bus-title.png":"Mahanoro_station_app/Icons/small-bus-title.png"}],"Mahanoro_station_app/Containers/NextTripsTo.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","../Components":"Mahanoro_station_app/Components/index.js","../Components/Header/Styles/Header":"Mahanoro_station_app/Components/Header/Styles/Header.js","../Icons/small-bus-title.png":"Mahanoro_station_app/Icons/small-bus-title.png"}],"Mahanoro_station_app/Icons/clock.png":[function(require,module,exports) {
+module.exports = "/clock.8adfd9ef.png";
+},{}],"Mahanoro_station_app/Containers/NextTripsTo.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -39099,10 +39289,11 @@ var _Components = require("../Components");
 
 var _nextTrip = require("../Components/NextTrips/styles/nextTrip");
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+var _clock = _interopRequireDefault(require("../Icons/clock.png"));
 
-const clock = "data:image/png;base64,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";
-const bus = `https://w7.pngwing.com/pngs/31/888/png-transparent-bus-emoji-unicode-noto-fonts-sms-mount-fuji-angle-multimedia-messaging-service-orange.png`;
+var _bus = _interopRequireDefault(require("../Icons/bus.png"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function NextTripsToContainer() {
   const {
@@ -39116,27 +39307,94 @@ function NextTripsToContainer() {
   };
 
   return /*#__PURE__*/_react.default.createElement(_nextTrip.Container, null, /*#__PURE__*/_react.default.createElement(_Components.NextTrips.GroupTitle, null, /*#__PURE__*/_react.default.createElement("img", {
-    src: clock
+    src: _clock.default
   }), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h2", null, "Next trip to: "), /*#__PURE__*/_react.default.createElement(_Components.NextTrips.Title, null, trip))), destinations && findTheClickedDestination.map(trip => {
     return /*#__PURE__*/_react.default.createElement(_Components.NextTrips.Group, {
       key: trip.id
     }, /*#__PURE__*/_react.default.createElement(_Components.NextTrips.SubGroup, null, /*#__PURE__*/_react.default.createElement(_Components.NextTrips.BusIcon, {
-      src: bus,
+      src: _bus.default,
       alt: "taxi-brousse"
-    })), /*#__PURE__*/_react.default.createElement(_Components.NextTrips.SubGroup, null, /*#__PURE__*/_react.default.createElement("div", null, new Date().toDateString(trip.departureTime)), /*#__PURE__*/_react.default.createElement("div", null, new Date().toLocaleTimeString(trip.departureTime))), /*#__PURE__*/_react.default.createElement(_Components.NextTrips.SubGroup, null, /*#__PURE__*/_react.default.createElement("div", null, new Date().toLocaleDateString(trip.departureTime)), /*#__PURE__*/_react.default.createElement("div", null, numberOfSeats(trip.seats) < 2 ? `${numberOfSeats(trip.seats)} seat` : `${numberOfSeats(trip.seats)} seats`, " ", "left")), /*#__PURE__*/_react.default.createElement(_Components.NextTrips.SubGroup, null, numberOfSeats(trip.seats) === 0 ? /*#__PURE__*/_react.default.createElement(_Components.NextTrips.LinkButtonNone, {
+    })), /*#__PURE__*/_react.default.createElement(_Components.NextTrips.SubGroup, null, /*#__PURE__*/_react.default.createElement(_Components.NextTrips.Date, null, new Date().toDateString(trip.departureTime)), /*#__PURE__*/_react.default.createElement(_Components.NextTrips.Date, null, new Date(trip.departureTime).getHours(), ":", new Date(trip.departureTime).getMinutes())), /*#__PURE__*/_react.default.createElement(_Components.NextTrips.SubGroup, null, /*#__PURE__*/_react.default.createElement("div", null, new Date().toLocaleDateString(trip.departureTime)), /*#__PURE__*/_react.default.createElement(_Components.NextTrips.SeatBnt, null, numberOfSeats(trip.seats) < 2 ? `${numberOfSeats(trip.seats)} seat` : `${numberOfSeats(trip.seats)} seats`, " ", "left")), /*#__PURE__*/_react.default.createElement(_Components.NextTrips.SubGroup, null, numberOfSeats(trip.seats) === 0 ? /*#__PURE__*/_react.default.createElement(_Components.NextTrips.LinkButtonNone, {
       to: `/nextTrip/${trip.id}`
     }, "Book a seat") : /*#__PURE__*/_react.default.createElement(_Components.NextTrips.LinkButtonNum, {
       to: `/nextTrip/${trip.id}`
     }, "Book a seat")));
   }));
 }
-},{"react":"node_modules/react/index.js","react-redux":"node_modules/react-redux/es/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","../Components":"Mahanoro_station_app/Components/index.js","../Components/NextTrips/styles/nextTrip":"Mahanoro_station_app/Components/NextTrips/styles/nextTrip.js"}],"Mahanoro_station_app/Components/Home/styles/home.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","react-redux":"node_modules/react-redux/es/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","../Components":"Mahanoro_station_app/Components/index.js","../Components/NextTrips/styles/nextTrip":"Mahanoro_station_app/Components/NextTrips/styles/nextTrip.js","../Icons/clock.png":"Mahanoro_station_app/Icons/clock.png","../Icons/bus.png":"Mahanoro_station_app/Icons/bus.png"}],"Mahanoro_station_app/Actions/index.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.BusIcon = exports.BtnGroup = exports.LinkButton = exports.Title = exports.Container = void 0;
+exports.destionation = destionation;
+exports.bookedSeats = bookedSeats;
+exports.addSeats = addSeats;
+exports.getPrice = getPrice;
+exports.firstName = firstName;
+exports.lastName = lastName;
+exports.phoneNumber = phoneNumber;
+
+function destionation() {
+  return async dispatch => {
+    const res = await fetch(`https://gist.githubusercontent.com/Pinois/36bb5fbf9b6a686f0baf4006dd137bca/raw/a40d8b3f696a75f388db286d57bdd05a925fa0e7/trips.json`);
+    const destinations = await res.json();
+    return dispatch({
+      type: "DESTINATION",
+      value: destinations
+    });
+  };
+}
+
+function bookedSeats(seat) {
+  return {
+    type: "BOOK_SEATS",
+    value: seat
+  };
+}
+
+function addSeats(seats) {
+  return {
+    type: "ADD_SEATS",
+    value: seats
+  };
+}
+
+function getPrice(price) {
+  console.log(seats);
+  return {
+    type: "GET_PRICE",
+    value: price
+  };
+}
+
+function firstName(name) {
+  return {
+    type: "FIRST_NAME",
+    value: name
+  };
+}
+
+function lastName(name) {
+  return {
+    type: "LAST_NAME",
+    value: name
+  };
+}
+
+function phoneNumber(number) {
+  return {
+    type: "PHONE_NUMBER",
+    value: number
+  };
+}
+},{}],"Mahanoro_station_app/Components/Home/styles/home.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.BusIcon = exports.BtnGroup = exports.LinkButton = exports.SubTitle = exports.Title = exports.Container = void 0;
 
 var _styledComponents = _interopRequireDefault(require("styled-components"));
 
@@ -39149,9 +39407,19 @@ const Container = _styledComponents.default.section`
 exports.Container = Container;
 const Title = _styledComponents.default.h1`
 font-weight: bold;
-font-size: 64px;
+
+display: flex;
+align-items: center;
+
+img {
+  margin-right: 30px;
+}
 `;
 exports.Title = Title;
+const SubTitle = _styledComponents.default.div`
+font-size: 64px;
+`;
+exports.SubTitle = SubTitle;
 const LinkButton = _styledComponents.default.button`
   background-color: #0f0e17;
   color: #ffffff;
@@ -39162,6 +39430,11 @@ const LinkButton = _styledComponents.default.button`
   display: flex;
   justify-content: space-around;
   align-items: center;
+  flex-wrap: wrap;
+
+  span {
+    font-size: 30px;
+  }
 `;
 exports.LinkButton = LinkButton;
 const BtnGroup = _styledComponents.default.div`
@@ -39194,6 +39467,8 @@ var _Components = require("../Components");
 
 var _home = require("../Components/Home/styles/home");
 
+var _bus = _interopRequireDefault(require("../Icons/bus.png"));
+
 var _destination = _interopRequireDefault(require("../Icons/destination.svg"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -39201,8 +39476,6 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
-
-const bus = `https://w7.pngwing.com/pngs/31/888/png-transparent-bus-emoji-unicode-noto-fonts-sms-mount-fuji-angle-multimedia-messaging-service-orange.png`;
 
 function HomePages() {
   const destinations = (0, _reactRedux.useSelector)(state => state.destinations);
@@ -39212,19 +39485,18 @@ function HomePages() {
   }, []);
   const cities = destinations !== [] && destinations.map(city => city.destination);
   const getCitiesNeeded = cities.filter((data, index) => {
-    console.log("data", data);
     return cities.indexOf(data) === index;
   });
   return /*#__PURE__*/_react.default.createElement(_home.Container, null, /*#__PURE__*/_react.default.createElement(_Components.Home.Title, null, /*#__PURE__*/_react.default.createElement(_Components.Home.BusIcon, {
-    src: bus
-  }), "Where are you going?"), /*#__PURE__*/_react.default.createElement(_Components.Home.BtnGroup, null, destinations !== [] && getCitiesNeeded.map(trip => /*#__PURE__*/_react.default.createElement(_Components.Home.LinkButton, {
+    src: _bus.default
+  }), /*#__PURE__*/_react.default.createElement(_Components.Home.SubTitle, null, "Where are you going?")), /*#__PURE__*/_react.default.createElement(_Components.Home.BtnGroup, null, destinations !== [] && getCitiesNeeded.map(trip => /*#__PURE__*/_react.default.createElement(_Components.Home.LinkButton, {
     key: trip,
     to: `/destination/${trip}`
   }, /*#__PURE__*/_react.default.createElement("img", {
     src: _destination.default
   }), " ", /*#__PURE__*/_react.default.createElement("span", null, trip)))));
 }
-},{"react":"node_modules/react/index.js","react-redux":"node_modules/react-redux/es/index.js","../Actions":"Mahanoro_station_app/Actions/index.js","../Components":"Mahanoro_station_app/Components/index.js","../Components/Home/styles/home":"Mahanoro_station_app/Components/Home/styles/home.js","../Icons/destination.svg":"Mahanoro_station_app/Icons/destination.svg"}],"Mahanoro_station_app/Icons/account.png":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","react-redux":"node_modules/react-redux/es/index.js","../Actions":"Mahanoro_station_app/Actions/index.js","../Components":"Mahanoro_station_app/Components/index.js","../Components/Home/styles/home":"Mahanoro_station_app/Components/Home/styles/home.js","../Icons/bus.png":"Mahanoro_station_app/Icons/bus.png","../Icons/destination.svg":"Mahanoro_station_app/Icons/destination.svg"}],"Mahanoro_station_app/Icons/account.png":[function(require,module,exports) {
 module.exports = "/account.6781e1a5.png";
 },{}],"Mahanoro_station_app/Pages/MyAccount.js":[function(require,module,exports) {
 "use strict";
@@ -39236,32 +39508,54 @@ exports.default = void 0;
 
 var _react = _interopRequireDefault(require("react"));
 
+var _reactRedux = require("react-redux");
+
 var _Components = require("../Components");
 
 var _account = require("../Components/MyAccount/style/account");
 
 var _account2 = _interopRequireDefault(require("../Icons/account.png"));
 
+var _bus = _interopRequireDefault(require("../Icons/bus.png"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function MyAccount() {
+  const destinations = (0, _reactRedux.useSelector)(state => state.destinations);
+  const getBookedSeats = destinations !== [] && destinations.map(city => city.destination);
+  console.log(getBookedSeats);
+  const getTime = destinations !== [] && destinations.map(city => city.departureTime);
+  const getPrice = destinations !== [] && destinations.map(city => city.price);
+  const dispatch = (0, _reactRedux.useDispatch)();
+
+  function handleChange() {
+    dispatch(addSeats());
+  }
+
   return /*#__PURE__*/_react.default.createElement(_account.Container, null, /*#__PURE__*/_react.default.createElement(_Components.MyAccountStyle.Group, null, /*#__PURE__*/_react.default.createElement("img", {
     src: _account2.default
-  }), /*#__PURE__*/_react.default.createElement(_Components.MyAccountStyle.Title, null, /*#__PURE__*/_react.default.createElement("h2", null, "My Account"), /*#__PURE__*/_react.default.createElement("span", null, "Petah Jeannie"))), /*#__PURE__*/_react.default.createElement(_Components.MyAccountStyle.SubGroup, null, /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h3", null, "my personnal informations:"), /*#__PURE__*/_react.default.createElement("form", null, /*#__PURE__*/_react.default.createElement("label", null, "First Name: "), /*#__PURE__*/_react.default.createElement("p", null, /*#__PURE__*/_react.default.createElement(_Components.MyAccountStyle.Input, {
+  }), /*#__PURE__*/_react.default.createElement(_Components.MyAccountStyle.Title, null, /*#__PURE__*/_react.default.createElement("h2", null, "My Account"), /*#__PURE__*/_react.default.createElement("span", null, "Petah Jeannie"))), /*#__PURE__*/_react.default.createElement(_Components.MyAccountStyle.SubGroup, null, /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h3", null, "My personnal informations:"), /*#__PURE__*/_react.default.createElement(_Components.MyAccountStyle.Form, null, /*#__PURE__*/_react.default.createElement(_Components.MyAccountStyle.Label, null, "First Name: "), /*#__PURE__*/_react.default.createElement("p", null, /*#__PURE__*/_react.default.createElement(_Components.MyAccountStyle.Input, {
     type: "text",
-    value: "Petah"
-  })), /*#__PURE__*/_react.default.createElement("label", null, "Last Name: "), /*#__PURE__*/_react.default.createElement("p", null, /*#__PURE__*/_react.default.createElement(_Components.MyAccountStyle.Input, {
+    value: "Petah",
+    onChange: handleChange
+  })), /*#__PURE__*/_react.default.createElement(_Components.MyAccountStyle.Label, null, "Last Name: "), /*#__PURE__*/_react.default.createElement("p", null, /*#__PURE__*/_react.default.createElement(_Components.MyAccountStyle.Input, {
     type: "text",
-    value: "Jeannie"
-  })), /*#__PURE__*/_react.default.createElement("label", null, "Phone Number: "), /*#__PURE__*/_react.default.createElement("p", null, /*#__PURE__*/_react.default.createElement(_Components.MyAccountStyle.Input, {
-    type: "number",
-    value: "034 55 030 89"
-  })), /*#__PURE__*/_react.default.createElement(_Components.MyAccountStyle.SubmitBtn, null, "Update"))), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h3", null, "My bookings:"))));
+    value: "Jeannie",
+    onChange: handleChange
+  })), /*#__PURE__*/_react.default.createElement(_Components.MyAccountStyle.Label, null, "Phone Number: "), /*#__PURE__*/_react.default.createElement("p", null, /*#__PURE__*/_react.default.createElement(_Components.MyAccountStyle.Input, {
+    type: "text",
+    value: "034 55 030 89",
+    onChange: handleChange
+  })), /*#__PURE__*/_react.default.createElement(_Components.MyAccountStyle.SubmitBtn, {
+    to: "/"
+  }, "Update"))), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h3", null, "My bookings:"), /*#__PURE__*/_react.default.createElement(_Components.MyAccountStyle.Wrapper, null, /*#__PURE__*/_react.default.createElement("img", {
+    src: _bus.default
+  }), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement(_Components.MyAccountStyle.Info, null, getBookedSeats[0]), /*#__PURE__*/_react.default.createElement(_Components.MyAccountStyle.Info, null, getTime[0])), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement(_Components.MyAccountStyle.Info, null, "2 seats"), /*#__PURE__*/_react.default.createElement(_Components.MyAccountStyle.Info, null, getPrice[0], " Ar ")), /*#__PURE__*/_react.default.createElement(_Components.MyAccountStyle.Cancel, null, "cancel")))));
 }
 
 var _default = MyAccount;
 exports.default = _default;
-},{"react":"node_modules/react/index.js","../Components":"Mahanoro_station_app/Components/index.js","../Components/MyAccount/style/account":"Mahanoro_station_app/Components/MyAccount/style/account.js","../Icons/account.png":"Mahanoro_station_app/Icons/account.png"}],"Mahanoro_station_app/MahanorStationApp.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","react-redux":"node_modules/react-redux/es/index.js","../Components":"Mahanoro_station_app/Components/index.js","../Components/MyAccount/style/account":"Mahanoro_station_app/Components/MyAccount/style/account.js","../Icons/account.png":"Mahanoro_station_app/Icons/account.png","../Icons/bus.png":"Mahanoro_station_app/Icons/bus.png"}],"Mahanoro_station_app/MahanorStationApp.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -39369,14 +39663,11 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
-
-var _Reducers = require("./Mahanoro_station_app/Reducers");
-
 var _default = {
   destinations: []
 };
 exports.default = _default;
-},{"./Mahanoro_station_app/Reducers":"Mahanoro_station_app/Reducers/index.js"}],"store.js":[function(require,module,exports) {
+},{}],"store.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -39447,7 +39738,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58031" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49821" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

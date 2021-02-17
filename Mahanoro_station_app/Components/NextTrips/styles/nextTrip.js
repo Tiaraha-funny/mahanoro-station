@@ -15,15 +15,18 @@ background-color: #E53170;
 color: #ffffff;
 padding: 20px;
 font-weight: 600px;
+font-size: 25px;
 `;
 
 
 export const LinkButtonNone = styled.button`
-background-color: #E53170;
-color: #ffffff;
-padding: 20px;
-font-weight: 600px;
-opacity: 0.5;
+    background-color: #E53170;
+    color: #ffffff;
+    padding: 20px;
+    font-weight: 600px;
+    opacity: 0.5;
+    font-size: 25px;
+    cursor: not-allowed;
 `;
 
 export const Group = styled.div`
@@ -32,6 +35,7 @@ flex-direction: row;
 justify-content: space-between;
 align-items: center;
 `;
+
 
 export const GroupTitle = styled.div`
 display: flex;
@@ -52,8 +56,12 @@ line-height: 76px;
 
 export const SubGroup = styled.div`
 margin-bottom: 20px;
+font-size: 36px;
+line-height: 43px;
 `;
-export const Date = styled.div``;
+export const Date = styled.div`
+color: #FF8906;
+`;
 export const Time = styled.div``;
 export const SeatBnt = styled.div``;
 export const Icons = styled.img`
@@ -61,5 +69,5 @@ width: 100px;
 `;
 
 export const BusIcon = styled.img`
-width: 50px;
+width: 70px;
 `;

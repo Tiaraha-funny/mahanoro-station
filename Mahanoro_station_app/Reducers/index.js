@@ -13,6 +13,7 @@ export function destinations(state = [], action) {
   }
 }
 
+
 export const rootReducers = combineReducers({
     destinations,
 })

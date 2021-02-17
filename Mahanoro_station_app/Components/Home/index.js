@@ -1,6 +1,6 @@
 import React from "react";
 import { Link as ReachRouterLink } from "react-router-dom";
-import { Container, Title, BtnGroup, LinkButton, BusIcon } from "./Styles/home";
+import { Container, Title, BtnGroup, LinkButton, BusIcon, SubTitle } from "./Styles/home";
 
 export default function Home({ children, ...restProps }) {
   return <Container {...restProps}>{children}</Container>;
@@ -8,6 +8,10 @@ export default function Home({ children, ...restProps }) {
 
 Home.Title = function HomeTitle({ children, ...restProps }) {
   return <Title {...restProps}>{children}</Title>;
+};
+
+Home.SubTitle = function HomeSubTitle({ children, ...restProps }) {
+  return <SubTitle {...restProps}>{children}</SubTitle>;
 };
 
 Home.BtnGroup = function HomeBtnGroup({ children, ...restProps }) {

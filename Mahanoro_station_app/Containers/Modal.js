@@ -1,11 +1,12 @@
 import React from "react";
 import styled from "styled-components";
 import tick from "../Icons/tick.png";
-import {Link as ReachRouterLink} from "react-router-dom";
+import { Link as ReachRouterLink } from "react-router-dom";
 
-export default function ModalContainer({ modalOn, setModalOn }) {
-  //   const classNames = modalOn ? "display-block" : "display-none";
-
+export default function ModalContainer({
+  modalOn,
+  setModalOn,
+}) {
   const Modal = styled.div`
     z-index: auto;
     position: fixed;
@@ -15,48 +16,6 @@ export default function ModalContainer({ modalOn, setModalOn }) {
     height: 100vh;
     width: 100vw;
     background-color: rgba(255, 255, 255, 0.8);
-  `;
-
-  const ModalInner = styled.div`
-    background-color: white;
-    width: 50%;
-    left: 30%;
-    bottom: 10%;
-    position: fixed;
-    border: 5px solid #e53170;
-    box-sizing: border-box;
-    height: 400px;
-    text-align: center;
-    padding: 50px;
-  `;
-
-  const CloseBtn = styled.button`
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    border: none;
-    background: none;
-  `;
-
-  const Title = styled.div`
-    display: flex;
-    align-items: center;
-
-    h2 {
-      font-weight: bold;
-      font-size: 36px;
-      line-height: 43px;
-      text-transform: uppercase;
-    }
-    ~ p {
-      margin-bottom: 50px;
-    }
-  `;
-
-  const LinkToAccount = styled(ReachRouterLink)`
-  background-color:  #E53170;
-  padding: 16px;
-  color: white;
   `;
 
   return (
@@ -71,10 +30,52 @@ export default function ModalContainer({ modalOn, setModalOn }) {
             Thank you for trusting our services. Your booking has been added to
             your account. You can review it there.
           </p>
-          <LinkToAccount to={`/myAccount`} >Check your account</LinkToAccount>
+          <LinkToAccount to={`/myAccount`}>Check your account</LinkToAccount>
         </div>
         <CloseBtn onClick={() => setModalOn(false)}>X</CloseBtn>
       </ModalInner>
     </Modal>
   );
 }
+
+const ModalInner = styled.div`
+  background-color: white;
+  width: 50%;
+  left: 30%;
+  bottom: 10%;
+  position: fixed;
+  border: 5px solid #e53170;
+  box-sizing: border-box;
+  height: 400px;
+  text-align: center;
+  padding: 50px;
+`;
+
+const CloseBtn = styled.button`
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  border: none;
+  background: none;
+`;
+
+const Title = styled.div`
+  display: flex;
+  align-items: center;
+
+  h2 {
+    font-weight: bold;
+    font-size: 36px;
+    line-height: 43px;
+    text-transform: uppercase;
+  }
+  ~ p {
+    margin-bottom: 50px;
+  }
+`;
+
+const LinkToAccount = styled(ReachRouterLink)`
+  background-color: #e53170;
+  padding: 16px;
+  color: white;
+`;

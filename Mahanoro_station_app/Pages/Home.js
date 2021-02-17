@@ -3,10 +3,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { destionation } from "../Actions";
 import { Home } from "../Components";
 import { Container } from "../Components/Home/styles/home";
+import bus from "../Icons/bus.png";
 
 import destinationSvg from "../Icons/destination.svg";
-
-const bus = `https://w7.pngwing.com/pngs/31/888/png-transparent-bus-emoji-unicode-noto-fonts-sms-mount-fuji-angle-multimedia-messaging-service-orange.png`;
 
 export default function HomePages() {
   const destinations = useSelector((state) => state.destinations);
@@ -20,7 +19,6 @@ export default function HomePages() {
     destinations !== [] && destinations.map((city) => city.destination);
 
   const getCitiesNeeded = cities.filter((data, index) => {
-    console.log("data", data);
     return cities.indexOf(data) === index;
   });
 
@@ -28,7 +26,7 @@ export default function HomePages() {
     <Container>
       <Home.Title>
         <Home.BusIcon src={bus} />
-        Where are you going?
+        <Home.SubTitle>Where are you going?</Home.SubTitle>
       </Home.Title>
       <Home.BtnGroup>
         {destinations !== [] &&

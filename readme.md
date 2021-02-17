@@ -1,6 +1,19 @@
 # Graded Project - Mahanoro Station
 
-![Design preview for the Mahanoro station coding challenge](./design/1.png)
+1- This is the first view, the home page.
+![home page](./ScreenShots/home.png)
+
+2- After clicking one of the city, you find this page
+![details](./ScreenShots/detail.png)
+
+3- Then, you can more details about the trip you choose
+![details](./ScreenShots/more-detail.png)
+
+4- After you take the seat you see the poppup modal
+![details](./ScreenShots/modal.png)
+
+5- Last you got your account
+![details](./ScreenShots/your-account.png)
 
 ## Description
 

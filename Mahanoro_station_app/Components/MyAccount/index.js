@@ -1,5 +1,5 @@
 import React from "react";
-import { Title, Container, Group, SubGroup, Input, Label, Form, SubmitBtn } from "../MyAccount/style/account";
+import { Title, Container, Group, SubGroup, Input, Label, Form, Cancel, SubmitBtn, Wrapper,Info } from "../MyAccount/style/account";
 
 export default function MyAccountStyle({ children, ...restProps }) {
   return <Container {...restProps}>{children}</Container>;
@@ -7,6 +7,10 @@ export default function MyAccountStyle({ children, ...restProps }) {
 
 MyAccountStyle.Title = function MyAccountStyleTitle({children, ...restProps}) {
     return <Title {...restProps}>{children}</Title>
+}
+
+MyAccountStyle.Cancel = function MyAccountStyleCancel({children, ...restProps}) {
+    return <Cancel {...restProps}>{children}</Cancel>
 }
 
 MyAccountStyle.Group = function MyAccountStyleGroup({children, ...restProps}) {
@@ -30,4 +34,12 @@ MyAccountStyle.Form = function MyAccountStyleForm({children, ...restProps}) {
 
 MyAccountStyle.SubmitBtn = function MyAccountStyleSubmitBtn({children, ...restProps}) {
     return <SubmitBtn {...restProps}>{children}</SubmitBtn>
+}
+
+MyAccountStyle.Info = function MyAccountStyleInfo({children, ...restProps}) {
+    return <Info {...restProps}>{children}</Info>
+}
+
+MyAccountStyle.Wrapper = function MyAccountStyleWrapper({children, ...restProps}) {
+    return <Wrapper {...restProps}>{children}</Wrapper>
 }

@@ -17,9 +17,37 @@ export function bookedSeats(seat) {
 }
 
 export function addSeats(seats) {
-    console.log(seats);
     return {
         type: "ADD_SEATS",
         value: seats
+    }
+}
+
+export function getPrice(price) {
+    console.log(seats);
+    return {
+        type: "GET_PRICE",
+        value: price
+    }
+}
+
+export function firstName(name) {
+    return {
+        type: "FIRST_NAME",
+        value: name
+    }
+}
+
+export function lastName(name) {
+    return {
+        type: "LAST_NAME",
+        value: name
+    }
+}
+
+export function phoneNumber(number) {
+    return {
+        type: "PHONE_NUMBER",
+        value: number
     }
 }

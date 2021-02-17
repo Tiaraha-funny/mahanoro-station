@@ -1,6 +1,6 @@
 import React from "react";
 import { Link as ReachRouterLink } from "react-router-dom";
-import { Title, Container, LinkButtonNone, LinkButtonNum, Time, Date, Group, SubGroup,BusIcon, GroupTitle } from "./styles/nextTrip";
+import { Title, Container, LinkButtonNone, LinkButtonNum, Time, Date, Group, SubGroup,BusIcon, GroupTitle, SeatBnt } from "./styles/nextTrip";
 
 
 export default function NextTrips({ children, ...restProps}) {
@@ -48,6 +48,10 @@ NextTrips.GroupTitle = function NextTripsGroupTitle({ children, ...restProps }) 
   return <GroupTitle { ...restProps } >{children}</GroupTitle>
 }
 
+
+NextTrips.SeatBnt = function NextTripsSeatBnt({ children, ...restProps }) {
+  return <SeatBnt {...restProps}>{children}</SeatBnt>;
+};
 
 NextTrips.BusIcon = function NextTripsBusIcon({ children, ...restProps }) {
   return <BusIcon {...restProps}>{children}</BusIcon>;

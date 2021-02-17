@@ -6,8 +6,19 @@ export const Container = styled.section`
 `;
 export const Title = styled.h1`
 font-weight: bold;
+
+display: flex;
+align-items: center;
+
+img {
+  margin-right: 30px;
+}
+`;
+
+export const SubTitle = styled.div`
 font-size: 64px;
 `;
+
 export const LinkButton = styled.button`
   background-color: #0f0e17;
   color: #ffffff;
@@ -18,6 +29,11 @@ export const LinkButton = styled.button`
   display: flex;
   justify-content: space-around;
   align-items: center;
+  flex-wrap: wrap;
+
+  span {
+    font-size: 30px;
+  }
 `;
 export const BtnGroup = styled.div`
 display: grid;
